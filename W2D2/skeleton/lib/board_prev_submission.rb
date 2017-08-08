@@ -18,22 +18,24 @@ class Board
   # end
 
   def valid_move?(start_pos)
-    raise "Invalid starting cup" if start_pos < 0 || start_pos > 13
+    raise "Invalid starting cup" if start_pos < 0 || start_pos > 12
     raise "Invalid starting cup" if @cups[start_pos].empty?
   end
 
   def make_move(start_pos, current_player_name)
     moveable_stones = @cups[start_pos]
     @cups[start_pos] = []
+
     current_idx = start_pos
 
-    until moveable_stones.size == 0
+    until moveable_stones.empty?
       current_idx += 1
       current_idx = 0 if current_idx > 13
+
       if current_idx == 6
-        @cups[current_idx] << moveable_stones.pop if current_player_name == @name1
+        @cups[6] << moveable_stones.pop if current_player_name == @name1
       elsif current_idx == 13
-        @cups[current_idx] << moveable_stones.pop if current_player_name == @name2
+        @cups[13] << moveable_stones.pop if current_player_name == @name2
       else
         @cups[current_idx] << moveable_stones.pop
       end
@@ -47,9 +49,7 @@ class Board
     # helper method to determine what #make_move returns
     if ending_cup_idx == 6 || ending_cup_idx == 13
       :prompt
-    elsif @cups[ending_cup_idx] == 1
-      #I thought this should be 0, but we already placed a stone in there.
-      #Thus, it WAS 0, but we made it 1 but placing the stone, so we test == 1 rather than == 0
+    elsif @cups[ending_cup_idx].size == 1
       :switch
     else
       ending_cup_idx
