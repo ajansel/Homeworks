@@ -47,7 +47,7 @@ class Board
     # helper method to determine what #make_move returns
     if ending_cup_idx == 6 || ending_cup_idx == 13
       :prompt
-    elsif @cups[ending_cup_idx] == 1
+    elsif @cups[ending_cup_idx].size == 1
       #I thought this should be 0, but we already placed a stone in there.
       #Thus, it WAS 0, but we made it 1 but placing the stone, so we test == 1 rather than == 0
       :switch
