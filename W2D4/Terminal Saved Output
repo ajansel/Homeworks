@@ -1,0 +1,77 @@
+Last login: Wed Aug  9 18:22:14 on console
+~$ cd AppAcademy/
+~/AppAcademy$ ls
+Assessments		Homeworks		opening-assessments.mp4
+DailyAssignments	PrepCourse
+~/AppAcademy$ cd Homeworks/
+~/AppAcademy/Homeworks (master)$ ls
+README.md	W1D5		W2D1		W2D2		W2D3
+~/AppAcademy/Homeworks (master)$ mkdir W2D4
+~/AppAcademy/Homeworks (master)$ cd W2D4
+~/AppAcademy/Homeworks/W2D4 (master)$ ls
+~/AppAcademy/Homeworks/W2D4 (master)$ ls
+~/AppAcademy/Homeworks/W2D4 (master)$ touch sorting_demo.rb
+~/AppAcademy/Homeworks/W2D4 (master)$ atom .
+~/AppAcademy/Homeworks/W2D4 (master)$ ruby sorting_demo.rb 
+Press any key to benchmark sorts for 5 elements
+                user     system      total        real
+Tot. Merge:    0.000000   0.000000   0.000000 (  0.000094)
+Tot. Bubble:   0.000000   0.000000   0.000000 (  0.000019)
+Avg. Merge:    0.000000   0.000000   0.000000 (  0.000031)
+Avg. Bubble:   0.000000   0.000000   0.000000 (  0.000006)
+Press any key to benchmark sorts for 50 elements
+                user     system      total        real
+Tot. Merge:    0.000000   0.000000   0.000000 (  0.000603)
+Tot. Bubble:   0.000000   0.000000   0.000000 (  0.001085)
+Avg. Merge:    0.000000   0.000000   0.000000 (  0.000201)
+Avg. Bubble:   0.000000   0.000000   0.000000 (  0.000362)
+Press any key to benchmark sorts for 500 elements
+                user     system      total        real
+Tot. Merge:    0.010000   0.000000   0.010000 (  0.006476)
+Tot. Bubble:   0.060000   0.000000   0.060000 (  0.068982)
+Avg. Merge:    0.003333   0.000000   0.003333 (  0.002159)
+Avg. Bubble:   0.020000   0.000000   0.020000 (  0.022994)
+Press any key to benchmark sorts for 5000 elements
+                user     system      total        real
+Tot. Merge:    0.060000   0.000000   0.060000 (  0.065597)
+Tot. Bubble:   6.150000   0.020000   6.170000 (  6.188670)
+Avg. Merge:    0.020000   0.000000   0.020000 (  0.021866)
+Avg. Bubble:   2.050000   0.006667   2.056667 (  2.062890)
+Press any key to benchmark sorts for 50000 elements
+                user     system      total        real
+Tot. Merge:    0.670000   0.000000   0.670000 (  0.670689)
+Tot. Bubble: 635.170000   3.120000 638.290000 (671.587516)
+Avg. Merge:    0.223333   0.000000   0.223333 (  0.223563)
+Avg. Bubble: 211.723333   1.040000 212.763333 (223.862505)
+~/AppAcademy/Homeworks/W2D4 (master)$ ruby sorting_demo.rb 
+Press any key to benchmark sorts for 10 elements
+                user     system      total        real
+Tot. Merge:    0.000000   0.000000   0.000000 (  0.000210)
+Tot. Bubble:   0.000000   0.000000   0.000000 (  0.000079)
+Avg. Merge:    0.000000   0.000000   0.000000 (  0.000070)
+Avg. Bubble:   0.000000   0.000000   0.000000 (  0.000026)
+Press any key to benchmark sorts for 100 elements
+                user     system      total        real
+Tot. Merge:    0.000000   0.000000   0.000000 (  0.001361)
+Tot. Bubble:   0.000000   0.000000   0.000000 (  0.003378)
+Avg. Merge:    0.000000   0.000000   0.000000 (  0.000454)
+Avg. Bubble:   0.000000   0.000000   0.000000 (  0.001126)
+Press any key to benchmark sorts for 1000 elements
+                user     system      total        real
+Tot. Merge:    0.020000   0.000000   0.020000 (  0.015689)
+Tot. Bubble:   0.260000   0.010000   0.270000 (  0.269962)
+Avg. Merge:    0.006667   0.000000   0.006667 (  0.005230)
+Avg. Bubble:   0.086667   0.003333   0.090000 (  0.089987)
+Press any key to benchmark sorts for 10000 elements
+                user     system      total        real
+Tot. Merge:    0.130000   0.000000   0.130000 (  0.132636)
+Tot. Bubble:  27.070000   0.300000  27.370000 ( 28.151920)
+Avg. Merge:    0.043333   0.000000   0.043333 (  0.044212)
+Avg. Bubble:   9.023333   0.100000   9.123333 (  9.383973)
+Press any key to benchmark sorts for 100000 elements
+                user     system      total        real
+Tot. Merge:    1.440000   0.020000   1.460000 (  1.483894)
+Tot. Bubble: 2606.410000  12.160000 2618.570000 (2639.977416)
+Avg. Merge:    0.480000   0.006667   0.486667 (  0.494631)
+Avg. Bubble: 868.803333   4.053333 872.856667 (879.992472)
+~/AppAcademy/Homeworks/W2D4 (master)$ 
