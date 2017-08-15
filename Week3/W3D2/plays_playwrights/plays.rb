@@ -20,7 +20,7 @@ class Play
   end
 
   def self.find_by_title(title)
-    PlayDBConnection.instance.execute(<<-SQL, title)
+    play = PlayDBConnection.instance.execute(<<-SQL, title)
       SELECT
         *
       FROM
@@ -28,20 +28,27 @@ class Play
       WHERE
         title = ?
     SQL
+
+    return nil if play.empty?
+
+    Play.new(play.first) #So we get the first element (and only element) in the play array
   end
 
   def self.find_by_playwright(name)
-    PlayDBConnection.instance.execute(<<-SQL, name)
+    playwright = Playwright.find_by_name(name)
+    raise "#{name} not found in database" unless playwright #Aka unless it isn't nil
+
+    plays = PlayDBConnection.instance.execute(<<-SQL, playwright.id)
       SELECT
         *
       FROM
         plays
-      JOIN
-        playwrights ON playwrights.id = plays.playwright_id
       WHERE
-        playwrights.name = ?
+        playwright_id = ?
     SQL
-    #Returns all plays written by this person
+    #Returns all plays written by this person, as new instances
+
+    plays.map { |play| Play.new(play) }
   end
 
   def initialize(options)
@@ -85,7 +92,7 @@ class Playwright
   end
 
   def self.find_by_name(name)
-    PlayDBConnection.instance.execute(<<-SQL, name)
+    person = PlayDBConnection.instance.execute(<<-SQL, name)
       SELECT
         *
       FROM
@@ -93,6 +100,10 @@ class Playwright
       WHERE
         name = ?
     SQL
+
+    return nil if person.empty?
+
+    Playwright.new(person.first)
   end
 
   def initialize(options)
@@ -133,8 +144,8 @@ class Playwright
 
   def get_plays
     raise "#{self} not in database" unless @id
-    
-    PlayDBConnection.instance.execute(<<-SQL, @id)
+
+    plays = PlayDBConnection.instance.execute(<<-SQL, @id)
       SELECT
         *
       FROM
@@ -142,6 +153,8 @@ class Playwright
       WHERE
         playwright_id = ?
     SQL
-    #Returns all plays written by this person
+    #Returns all plays written by this person as new instances
+
+    plays.map { |play| Play.new(play) }
   end
 end
