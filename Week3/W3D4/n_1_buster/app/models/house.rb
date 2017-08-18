@@ -24,5 +24,17 @@ class House < ActiveRecord::Base
 
   def better_seeds_query
     # TODO: your code here
+    #This will still require us to iterate through tracks
+    # albums = self.albums.includes(:tracks)
+    #Instead, if we do this first we can use an alias that stores the tracks_count
+    plants = self.plants.includes(:seeds)
+
+
+    plants_seeds = []
+    plants.each do |plant|
+      plants_seeds << plant.seeds
+    end
+
+    plants_seeds
   end
 end
