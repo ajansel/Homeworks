@@ -23,8 +23,9 @@
 
 def find_angelina
   #find Angelina Jolie by name in the actors table
-  Actor.find_by(name: "Angelina Jolie")
 
+    Actor
+      .find_by(name: "Angelina Jolie")
 end
 
 def top_titles
@@ -32,7 +33,7 @@ def top_titles
   # hint: use 'select' and 'where'
   Movie
     .select(:id, :title)
-    .where("score >= 9")
+    .where('movies.score >= 9')
 end
 
 def star_wars
@@ -40,7 +41,7 @@ def star_wars
   # hint: use 'select' and 'where'
   Movie
     .select(:id, :title, :yr)
-    .where("title LIKE '%Star Wars%'")
+    .where('movies.title LIKE \'%Star Wars%\'')
 end
 
 
@@ -50,10 +51,11 @@ def below_average_years
   #in descending order
   # hint: use 'select', 'where', 'group', 'order'
   Movie
-    .select("yr", "COUNT(*) as bad_movies")
-    .where("score < 5")
-    .group("yr")
-    .order("bad_movies DESC")
+    .select('movies.yr, COUNT(movies.title) as bad_movies')
+    .where('movies.score < 5')
+    .group('movies.yr')
+    .order('COUNT(movies.yr) DESC')
+
 end
 
 def alphabetized_actors
@@ -63,7 +65,8 @@ def alphabetized_actors
   # are alphabetized differently than the specs.
   # This spec might fail for Ubuntu users. It's ok!
   Actor
-    .order("name ASC")
+    .select(:id, :name)
+    .order(:name)
     .limit(10)
 end
 
@@ -74,7 +77,7 @@ def pulp_fiction_actors
   Actor
     .select(:id, :name)
     .joins(:movies)
-    .where("title = 'Pulp Fiction'")
+    .where(movies: { title: "Pulp Fiction"})
 end
 
 def uma_movies
@@ -89,6 +92,6 @@ def uma_movies
   Movie
     .select(:id, :title, :yr)
     .joins(:actors)
-    .where("name = 'Uma Thurman'")
-    .order("yr ASC")
+    .where(actors: { name: "Uma Thurman" })
+    .order(:title)
 end
