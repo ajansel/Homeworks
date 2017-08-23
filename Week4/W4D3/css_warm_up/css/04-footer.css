@@ -26,7 +26,8 @@
 }
 
 .footer a {
-  /*display: block;*/
+  /*display: block;
+  ^is this necessary?  */
 }
 
 .footer a:hover {
