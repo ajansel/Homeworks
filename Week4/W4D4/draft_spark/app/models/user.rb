@@ -26,7 +26,7 @@ class User < ApplicationRecord
   def reset_session_token!
     # @session_token = nil
     # We want to generate a new one, not set it to nil
-    @session_token = User.generate_session_token
+    self.session_token = User.generate_session_token
     self.save
 
     # Also need to return the session_token
@@ -34,13 +34,13 @@ class User < ApplicationRecord
   end
 
   def ensure_session_token
-    @session_token ||= User.generate_session_token
+    self.session_token ||= User.generate_session_token
   end
 
   def password=(user_password)
     @password = user_password
 
     # This must be a create, not 'new', so that it is in our params?
-    @password_digest = BCrypt::Password.create(@password)
+    self.password_digest = BCrypt::Password.create(self.password)
   end
 end
