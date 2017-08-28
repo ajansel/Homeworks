@@ -1,0 +1,5 @@
+<h3>Here are all of our user's emails</h1>
+
+<% User.all.each do |user| %>
+  <%= user.email %>
+<% end  %>

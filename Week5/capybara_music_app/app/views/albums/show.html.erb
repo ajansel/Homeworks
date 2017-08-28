@@ -1,0 +1,4 @@
+<h3>This page is for <%= @album.title %> </h3>
+<h3>Band: <%= Band.find_by(id: @album.band_id).name %> </h3>
+<h3>Year: <%= @album.year %> </h3>
+<h3>Live: <%= @album.live? ? "Yes" : "No" %> </h3>
