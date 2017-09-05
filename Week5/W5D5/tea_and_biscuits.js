@@ -4,6 +4,8 @@ const reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+
 //
 // function teaAndBiscuits () {
 //   let first, second;
@@ -32,9 +34,11 @@ function teaAndBiscuits () {
       console.log(`You replied ${res2}.`);
 
       const first = (res === 'yes') ? 'do' : 'don\'t';
-      const secod = (res2 === 'yes') ? 'do' : 'don\'t';
+      const second = (res2 === 'yes') ? 'do' : 'don\'t';
       console.log(`So you ${first} want tea and you ${second} want biscuits.`);
       reader.close();
     });
   });
 }
+
+teaAndBiscuits();
