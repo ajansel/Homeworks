@@ -36,9 +36,10 @@ class Widget extends React.Component {
     // get the store's current state and deconstruct it into 'rates'
     // and 'baseCurrency' variables
     const { rates, baseCurrency } = this.props.store.getState();
-
+    console.log(rates);
+    console.log(baseCurrency);
     const currencyOptions = this.currencies.map( (currency) => (
-        <div onClick={ () => { this.fetchRates(currency) }}
+        <div onClick={ () => { this.fetchRates(currency); }}
              key={currency}
              className="currency-option">
           {currency}
