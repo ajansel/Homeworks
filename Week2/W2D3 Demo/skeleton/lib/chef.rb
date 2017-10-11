@@ -19,3 +19,5 @@ class Chef
     dessert.heat!
   end
 end
+
+puts "Made a silly line for demo"
